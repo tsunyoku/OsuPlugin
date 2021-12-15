@@ -1,6 +1,8 @@
 package com.tsunyoku.osuplugin.commands;
 
 import com.tsunyoku.osuplugin.*;
+import com.tsunyoku.osuplugin.models.BeatmapModel;
+import com.tsunyoku.osuplugin.models.BeatmapsetModel;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

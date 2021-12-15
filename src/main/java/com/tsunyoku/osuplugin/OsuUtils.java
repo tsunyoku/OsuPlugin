@@ -1,6 +1,8 @@
 package com.tsunyoku.osuplugin;
 
 import com.google.gson.Gson;
+import com.tsunyoku.osuplugin.models.BeatmapModel;
+import com.tsunyoku.osuplugin.models.BeatmapsetModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;

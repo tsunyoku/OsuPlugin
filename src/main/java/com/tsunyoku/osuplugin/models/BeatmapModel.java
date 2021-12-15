@@ -1,4 +1,4 @@
-package com.tsunyoku.osuplugin;
+package com.tsunyoku.osuplugin.models;
 
 public class BeatmapModel {
     public int BeatmapID;
