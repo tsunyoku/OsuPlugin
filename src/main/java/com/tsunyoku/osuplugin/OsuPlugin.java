@@ -1,5 +1,7 @@
 package com.tsunyoku.osuplugin;
 
+import com.tsunyoku.osuplugin.commands.BeatmapCommand;
+import com.tsunyoku.osuplugin.commands.BeatmapsetCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.permissions.ServerOperator;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -1,5 +1,6 @@
-package com.tsunyoku.osuplugin;
+package com.tsunyoku.osuplugin.commands;
 
+import com.tsunyoku.osuplugin.*;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
