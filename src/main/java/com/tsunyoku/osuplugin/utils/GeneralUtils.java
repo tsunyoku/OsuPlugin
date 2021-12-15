@@ -1,9 +1,9 @@
-package com.tsunyoku.osuplugin;
+package com.tsunyoku.osuplugin.utils;
 
 import java.io.*;
 import java.text.MessageFormat;
 
-public class Utils {
+public class GeneralUtils {
     public static String formatString(String string, Object ... params) {
         return new MessageFormat(string).format(params);
     }

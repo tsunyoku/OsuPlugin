@@ -3,6 +3,8 @@ package com.tsunyoku.osuplugin.commands;
 import com.tsunyoku.osuplugin.*;
 import com.tsunyoku.osuplugin.models.BeatmapModel;
 import com.tsunyoku.osuplugin.models.BeatmapsetModel;
+import com.tsunyoku.osuplugin.utils.OsuUtils;
+import com.tsunyoku.osuplugin.utils.GeneralUtils;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -58,23 +60,23 @@ public class BeatmapCommand implements CommandExecutor {
         BookMeta bookMeta = (BookMeta)writtenBook.getItemMeta();
         bookMeta.setAuthor(player.getName());
         bookMeta.setTitle(
-                Utils.formatString("Beatmap Info for {0}", beatmap_id)
+                GeneralUtils.formatString("Beatmap Info for {0}", beatmap_id)
         );
 
         bookMeta.addPage(
                 String.join("\n",
-                        Utils.formatString("§lBeatmap Info for {0}§r\n", beatmap.BeatmapID),
-                        Utils.formatString("Full Title: {0} - {1}", map_info.Artist, map_info.Title),
-                        Utils.formatString("Mapper: {0}", map_info.Creator),
-                        Utils.formatString("Status: {0}", OsuUtils.statusFromInt(map_info.RankedStatus)),
-                        Utils.formatString("beatmap: {0}", beatmap.DiffName),
-                        Utils.formatString("BPM: {0}", beatmap.BPM),
-                        Utils.formatString("AR: {0}", beatmap.AR),
-                        Utils.formatString("OD: {0}", beatmap.OD),
-                        Utils.formatString("CS: {0}", beatmap.CS),
-                        Utils.formatString("HP: {0}", beatmap.HP),
-                        Utils.formatString("Star Rating: {0}", beatmap.DifficultyRating),
-                        Utils.formatString("Max Combo: {0}", beatmap.MaxCombo)
+                        GeneralUtils.formatString("§lBeatmap Info for {0}§r\n", beatmap.BeatmapID),
+                        GeneralUtils.formatString("Full Title: {0} - {1}", map_info.Artist, map_info.Title),
+                        GeneralUtils.formatString("Mapper: {0}", map_info.Creator),
+                        GeneralUtils.formatString("Status: {0}", OsuUtils.statusFromInt(map_info.RankedStatus)),
+                        GeneralUtils.formatString("beatmap: {0}", beatmap.DiffName),
+                        GeneralUtils.formatString("BPM: {0}", beatmap.BPM),
+                        GeneralUtils.formatString("AR: {0}", beatmap.AR),
+                        GeneralUtils.formatString("OD: {0}", beatmap.OD),
+                        GeneralUtils.formatString("CS: {0}", beatmap.CS),
+                        GeneralUtils.formatString("HP: {0}", beatmap.HP),
+                        GeneralUtils.formatString("Star Rating: {0}", beatmap.DifficultyRating),
+                        GeneralUtils.formatString("Max Combo: {0}", beatmap.MaxCombo)
                 )
         );
 

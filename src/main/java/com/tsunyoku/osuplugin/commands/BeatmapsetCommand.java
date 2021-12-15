@@ -3,6 +3,8 @@ package com.tsunyoku.osuplugin.commands;
 import com.tsunyoku.osuplugin.*;
 import com.tsunyoku.osuplugin.models.BeatmapModel;
 import com.tsunyoku.osuplugin.models.BeatmapsetModel;
+import com.tsunyoku.osuplugin.utils.OsuUtils;
+import com.tsunyoku.osuplugin.utils.GeneralUtils;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,30 +47,30 @@ public class BeatmapsetCommand implements CommandExecutor {
         BookMeta bookMeta = (BookMeta)writtenBook.getItemMeta();
         bookMeta.setAuthor(player.getName());
         bookMeta.setTitle(
-                Utils.formatString("Beatmapset Info for {0}", beatmapset)
+                GeneralUtils.formatString("Beatmapset Info for {0}", beatmapset)
         );
 
         bookMeta.addPage(
                 String.join("\n",
                         "§lBeatmapset Info§r\n",
-                        Utils.formatString("Full Title: {0} - {1}", map_info.Artist, map_info.Title),
-                        Utils.formatString("Mapper: {0}", map_info.Creator),
-                        Utils.formatString("Status: {0}", OsuUtils.statusFromInt(map_info.RankedStatus))
+                        GeneralUtils.formatString("Full Title: {0} - {1}", map_info.Artist, map_info.Title),
+                        GeneralUtils.formatString("Mapper: {0}", map_info.Creator),
+                        GeneralUtils.formatString("Status: {0}", OsuUtils.statusFromInt(map_info.RankedStatus))
                 )
         );
 
         for (BeatmapModel difficulty: map_info.ChildrenBeatmaps) {
             bookMeta.addPage(
                     String.join("\n",
-                            Utils.formatString("§lBeatmap Info for {0}§r\n", difficulty.BeatmapID),
-                            Utils.formatString("Difficulty: {0}", difficulty.DiffName),
-                            Utils.formatString("BPM: {0}", difficulty.BPM),
-                            Utils.formatString("AR: {0}", difficulty.AR),
-                            Utils.formatString("OD: {0}", difficulty.OD),
-                            Utils.formatString("CS: {0}", difficulty.CS),
-                            Utils.formatString("HP: {0}", difficulty.HP),
-                            Utils.formatString("Star Rating: {0}", difficulty.DifficultyRating),
-                            Utils.formatString("Max Combo: {0}", difficulty.MaxCombo)
+                            GeneralUtils.formatString("§lBeatmap Info for {0}§r\n", difficulty.BeatmapID),
+                            GeneralUtils.formatString("Difficulty: {0}", difficulty.DiffName),
+                            GeneralUtils.formatString("BPM: {0}", difficulty.BPM),
+                            GeneralUtils.formatString("AR: {0}", difficulty.AR),
+                            GeneralUtils.formatString("OD: {0}", difficulty.OD),
+                            GeneralUtils.formatString("CS: {0}", difficulty.CS),
+                            GeneralUtils.formatString("HP: {0}", difficulty.HP),
+                            GeneralUtils.formatString("Star Rating: {0}", difficulty.DifficultyRating),
+                            GeneralUtils.formatString("Max Combo: {0}", difficulty.MaxCombo)
                     )
             );
         }

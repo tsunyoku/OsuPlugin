@@ -1,4 +1,4 @@
-package com.tsunyoku.osuplugin;
+package com.tsunyoku.osuplugin.utils;
 
 import com.google.gson.Gson;
 import com.tsunyoku.osuplugin.models.BeatmapModel;
@@ -14,11 +14,11 @@ import java.nio.charset.Charset;
 public class OsuUtils {
 
     public static BeatmapsetModel getBeatmapset(int beatmapset_id) throws IOException {
-        InputStream stream = new URL(Utils.formatString("https://api.chimu.moe/cheesegull/s/{0}", beatmapset_id)).openStream();
+        InputStream stream = new URL(GeneralUtils.formatString("https://api.chimu.moe/cheesegull/s/{0}", beatmapset_id)).openStream();
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
-            String jsonText = Utils.readRequest(reader);
+            String jsonText = GeneralUtils.readRequest(reader);
             Gson gson = new Gson();
             return gson.fromJson(jsonText, BeatmapsetModel.class);
         } finally {
@@ -27,11 +27,11 @@ public class OsuUtils {
     }
 
     public static BeatmapModel getBeatmap(int beatmap_id) throws IOException {
-        InputStream stream = new URL(Utils.formatString("https://api.chimu.moe/cheesegull/b/{0}", beatmap_id)).openStream();
+        InputStream stream = new URL(GeneralUtils.formatString("https://api.chimu.moe/cheesegull/b/{0}", beatmap_id)).openStream();
 
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
-            String jsonText = Utils.readRequest(reader);
+            String jsonText = GeneralUtils.readRequest(reader);
             Gson gson = new Gson();
             return gson.fromJson(jsonText, BeatmapModel.class);
         } finally {
