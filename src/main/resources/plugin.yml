@@ -1,0 +1,11 @@
+name: OsuPlugin
+version: '${project.version}'
+main: com.tsunyoku.osuplugin.OsuPlugin
+api-version: 1.12.2
+commands:
+  beatmapset:
+    aliases: ['s', 'set', 'bmapset']
+    description: 'Gives a book of osu! beatmapset info'
+  beatmap:
+    aliases: ['map', 'bmap', 'b']
+    description: 'Gives a book of osu! beatmap info'
