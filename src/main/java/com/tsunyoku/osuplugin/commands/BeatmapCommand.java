@@ -22,8 +22,12 @@ public class BeatmapCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) { return false; }
-
         Player player = (Player)sender;
+
+        if (this.plugin.permission_required && !player.hasPermission(this.plugin.permission)) {
+            player.sendMessage("You don't have permission to use this command!");
+            return true;
+        }
 
         if (args.length != 1) {
             player.sendMessage("Invalid beatmap ID, please make sure you have provided one!");

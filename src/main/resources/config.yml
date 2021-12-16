@@ -1,1 +1,4 @@
 api_key: ''
+permissions:
+  enabled: true
+  permission: 'osuplugin.use'

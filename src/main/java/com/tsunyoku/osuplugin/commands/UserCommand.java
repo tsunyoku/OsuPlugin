@@ -25,6 +25,11 @@ public class UserCommand implements CommandExecutor {
         if (!(sender instanceof Player)) { return false; }
         Player player = (Player)sender;
 
+        if (this.plugin.permission_required && !player.hasPermission(this.plugin.permission)) {
+            player.sendMessage("You don't have permission to use this command!");
+            return true;
+        }
+
         if (args.length != 1) {
             player.sendMessage("Invalid user ID, please make sure you have provided one!");
             return true;
