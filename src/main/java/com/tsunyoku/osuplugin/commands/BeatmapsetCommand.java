@@ -30,13 +30,14 @@ public class BeatmapsetCommand implements CommandExecutor {
             return true;
         }
 
-        int beatmapset = Integer.parseInt(args[0]);
+        String beatmapset = args[0];
 
         BeatmapsetModel map_info;
         try {
             map_info = OsuUtils.getBeatmapset(beatmapset);
             if (map_info == null) {
                 player.sendMessage("Failed to get the set from the API, please check you have provided a valid one!");
+                return true;
             }
         } catch (IOException e) {
             player.sendMessage("Failed to get the set from the API, please check you have provided a valid one!");
@@ -55,7 +56,7 @@ public class BeatmapsetCommand implements CommandExecutor {
                         "§lBeatmapset Info§r\n",
                         GeneralUtils.formatString("Full Title: {0} - {1}", map_info.Artist, map_info.Title),
                         GeneralUtils.formatString("Mapper: {0}", map_info.Creator),
-                        GeneralUtils.formatString("Status: {0}", OsuUtils.statusFromInt(map_info.RankedStatus))
+                        GeneralUtils.formatString("Status: {0}", map_info.RankedStatus.name())
                 )
         );
 

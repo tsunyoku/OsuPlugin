@@ -1,9 +1,11 @@
 package com.tsunyoku.osuplugin.models;
 
+import com.tsunyoku.osuplugin.enums.RankedStatus;
+
 public class BeatmapsetModel {
     public int SetID;
     public BeatmapModel[] ChildrenBeatmaps;
-    public int RankedStatus;
+    public RankedStatus RankedStatus;
     public String ApprovedDate;
     public String LastUpdate;
     public String LastChecked;

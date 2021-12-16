@@ -9,3 +9,6 @@ commands:
   beatmap:
     aliases: ['map', 'bmap', 'b']
     description: 'Gives a book of osu! beatmap info'
+  user:
+    aliases: ['u', 'osu']
+    description: 'Gives a book of osu! user info'
