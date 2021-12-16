@@ -24,7 +24,7 @@ public class BeatmapsetCommand implements CommandExecutor {
         if (!(sender instanceof Player)) { return false; }
         Player player = (Player)sender;
 
-        if (this.plugin.permission_required && !player.hasPermission(this.plugin.permission)) {
+        if (this.plugin.permissionsRequired && !player.hasPermission(this.plugin.permissionString)) {
             player.sendMessage("You don't have permission to use this command!");
             return true;
         }

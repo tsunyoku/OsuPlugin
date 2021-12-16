@@ -8,9 +8,9 @@ import org.bukkit.permissions.ServerOperator;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class OsuPlugin extends JavaPlugin {
-    public static String api_key;
-    public static boolean permission_required;
-    public static String permission;
+    public static String apiKey;
+    public static boolean permissionsRequired;
+    public static String permissionString;
 
     @Override
     public void onEnable() {
@@ -20,12 +20,12 @@ public final class OsuPlugin extends JavaPlugin {
 
         // check & store osu! api key
         this.saveDefaultConfig();
-        this.api_key = this.getConfig().getString("api_key");
-        this.permission_required = this.getConfig().getBoolean("permissions.enabled");
-        this.permission = this.getConfig().getString("permissions.permission");
+        this.apiKey = this.getConfig().getString("api_key");
+        this.permissionsRequired = this.getConfig().getBoolean("permissions.enabled");
+        this.permissionString = this.getConfig().getString("permissions.permission");
 
         // warn in console & to any online ops that there is no api key
-        if (this.api_key == null || this.api_key.isEmpty()) {
+        if (this.apiKey == null || this.apiKey.isEmpty()) {
             System.out.println("WARNING: No osu! api key has been set! You will not be able to use any commands which require the use of an API key.");
 
             Bukkit.getOnlinePlayers().stream().filter(ServerOperator::isOp).forEach(user -> user.sendMessage(

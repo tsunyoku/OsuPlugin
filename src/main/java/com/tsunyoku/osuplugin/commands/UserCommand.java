@@ -25,7 +25,7 @@ public class UserCommand implements CommandExecutor {
         if (!(sender instanceof Player)) { return false; }
         Player player = (Player)sender;
 
-        if (this.plugin.permission_required && !player.hasPermission(this.plugin.permission)) {
+        if (this.plugin.permissionsRequired && !player.hasPermission(this.plugin.permissionString)) {
             player.sendMessage("You don't have permission to use this command!");
             return true;
         }
@@ -39,7 +39,7 @@ public class UserCommand implements CommandExecutor {
 
         UserModel user;
         try {
-            user = OsuUtils.getUser(userID, this.plugin.api_key);
+            user = OsuUtils.getUser(userID, this.plugin.apiKey);
             if (user == null) {
                 player.sendMessage("Failed to get the user from the API, please check you have provided a valid one!");
                 return true;
