@@ -1,6 +1,8 @@
 package com.tsunyoku.osuplugin.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.tsunyoku.osuplugin.enums.RankedStatus;
 import com.tsunyoku.osuplugin.models.BeatmapModel;
 import com.tsunyoku.osuplugin.models.BeatmapsetModel;
 import com.tsunyoku.osuplugin.models.UserModel;
@@ -20,7 +22,11 @@ public class OsuUtils {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-8")));
             String jsonText = GeneralUtils.readRequest(reader);
-            Gson gson = new Gson();
+
+            GsonBuilder builder = new GsonBuilder();
+            builder.registerTypeAdapter(RankedStatus.class, new RankedStatusDeserializer());
+            Gson gson = builder.create();
+
             return gson.fromJson(jsonText, BeatmapsetModel.class);
         } finally {
             stream.close();
